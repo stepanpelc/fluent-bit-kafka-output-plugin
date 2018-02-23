@@ -33,8 +33,10 @@ import (
 
 var brokerList = []string{"kafka-0.kafka.default.svc.cluster.local:9092"}
 var producer sarama.SyncProducer
-var topic = "platform-k8sinfra-in"
+var topic := "platform-k8sinfra-in"
 var timeout = 0 * time.Minute
+
+_ topic
 
 //export FLBPluginRegister
 func FLBPluginRegister(ctx unsafe.Pointer) int {

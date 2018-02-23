@@ -32,6 +32,7 @@ import (
 )
 
 var brokerList = []string{"kafka-0.kafka.default.svc.cluster.local:9092"}
+var topic = "logs_default"
 var producer sarama.SyncProducer
 var timeout = 0 * time.Minute
 
@@ -43,6 +44,10 @@ func FLBPluginRegister(ctx unsafe.Pointer) int {
 //export FLBPluginInit
 func FLBPluginInit(ctx unsafe.Pointer) int {
 	var err error
+
+	broker := output.FLBPluginConfigKey(ctx, "broker")
+	topic := output.FLBPluginConfigKey(ctx, "topic")
+	brokerList = []string{broker}
 
 	if timeout == 0 {
 		timeout = 5 * time.Minute
@@ -106,7 +111,7 @@ func FLBPluginFlush(data unsafe.Pointer, length C.int, tag *C.char) int {
 		}
 
 		producer.SendMessage(&sarama.ProducerMessage{
-			Topic: "logs_default",
+			Topic: topic,
 			Key:   nil,
 			Value: sarama.ByteEncoder(encData),
 		})

@@ -45,7 +45,7 @@ func FLBPluginRegister(ctx unsafe.Pointer) int {
 func FLBPluginInit(ctx unsafe.Pointer) int {
 	var err error
 
-	broker = output.FLBPluginConfigKey(ctx, "broker")
+	broker := output.FLBPluginConfigKey(ctx, "broker")
 	topic = output.FLBPluginConfigKey(ctx, "topic")
 
 	brokerList = []string{broker}

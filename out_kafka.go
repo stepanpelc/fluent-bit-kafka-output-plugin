@@ -33,7 +33,7 @@ import (
 
 var brokerList = []string{"kafka-0.kafka.default.svc.cluster.local:9092"}
 var producer sarama.SyncProducer
-var topic
+var topic string
 var timeout = 0 * time.Minute
 
 //export FLBPluginRegister

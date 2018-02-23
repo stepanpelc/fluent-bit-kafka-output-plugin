@@ -50,6 +50,9 @@ func FLBPluginInit(ctx unsafe.Pointer) int {
 
 	brokerList = []string{broker}
 
+	fmt.Printf("%+v\n", brokerList)
+	fmt.Printf("%+v\n", topic)
+	
 	if timeout == 0 {
 		timeout = 5 * time.Minute
 	}

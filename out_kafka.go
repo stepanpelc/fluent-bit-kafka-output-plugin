@@ -32,7 +32,7 @@ import (
 )
 
 var brokerList = []string{"kafka-0.kafka.default.svc.cluster.local:9092"}
-var topic = "logs_default"
+var topic
 var producer sarama.SyncProducer
 var timeout = 0 * time.Minute
 

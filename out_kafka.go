@@ -31,7 +31,7 @@ import (
 	"github.com/ugorji/go/codec"
 )
 
-var brokerList = []string{"kafka-0.kafka.default.svc.cluster.local:9092"}
+var brokerList = []string{"vnvrh917.sos.kb.cz:9092"}
 var producer sarama.SyncProducer
 var topic string
 var timeout = 0 * time.Minute
